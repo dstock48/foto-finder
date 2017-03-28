@@ -153,6 +153,10 @@ input {
   figcaption {
     padding: 0.6em;
     font-size: 0.9em;
+    line-height: 1.3;
+    height: 65px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .card-image {
     display: block;
@@ -160,6 +164,7 @@ input {
     height: 150px;
     background: url('https://www.placecage.com/400/300');
     background-size: cover;
+    background-position: center;
   }
   .icons {
     // position: absolute;
@@ -189,14 +194,34 @@ footer {
 /*========================================
 >>>>>>>  M-E-D-I-A  Q-U-E-R-I-E-S  <<<<<<<
 ========================================*/
+
+@media (min-width: 1300px) {
+  .card {
+    .card-image {
+      height: 250px;
+    }
+  }
+}
+
+
 // under 1000px
 @media (max-width: 1000px) {
   h1 {
     line-height: 0.85em;
   }
 
+
+
   .card {
     width: 42%;
+    .card-image {
+      height: 300px;
+    }
+    .icons {
+      img {
+        height: 30px;
+      }
+    }
   }
 }
 
@@ -219,13 +244,27 @@ footer {
   }
   .card {
     margin: 10px;
+
+    .card-image {
+      height: 200px;
+    }
   }
 }
 
 // under 550px
 @media (max-width: 550px) {
   .card {
+    font-size: 25px;
     width: 90%;
+
+    figcaption {
+      height: 77px;
+    }
+    .icons {
+      img {
+        height: 40px;
+      }
+    }
   }
 }
 
@@ -252,5 +291,10 @@ footer {
     margin-top: 1.5rem;
     font-size: .8em;
     width: 46%;
+  }
+  .card {
+    .card-image {
+      height: 200px;
+    }
   }
 }

@@ -22,7 +22,7 @@ document.getElementById('save-button').addEventListener('click', function() {
   var card = document.createElement('div');
   var cardHeader = document.createElement('h2');
   var cardFigure = document.createElement('figure');
-  var cardImg = document.createElement('img');
+  var cardImg = document.createElement('div');
   var cardCaption = document.createElement('figcaption');
   var iconContainer = document.createElement('div');
   var deleteIcon = document.createElement('img');
@@ -31,7 +31,7 @@ document.getElementById('save-button').addEventListener('click', function() {
   // Add Data to DOM
   cardHeader.innerText = foto.title;
   cardCaption.innerText = foto.caption;
-  cardImg.setAttribute('src', foto.path);
+  cardImg.style.backgroundImage = 'url(' + foto.path + ')';
   deleteIcon.setAttribute('src', 'assets/delete.svg');
   favoriteIcon.setAttribute('src', 'assets/favorite.svg');
 
