@@ -111,10 +111,18 @@ input {
   float: right;
 }
 
+/*========================================
+>>>>>>>  P-H-O-T-O  G-A-L-L-E-R-Y  <<<<<<<
+========================================*/
+
 .gallery {
   background-color: #C2B2B4;
   height: 500px;
   padding: 50px;
+}
+
+.card-container {
+  margin: 0 auto;
 }
 
 .card {
@@ -134,6 +142,9 @@ input {
     font-weight: 600;
     margin: 0;
     padding: 0.6em;
+  }
+  figure {
+    margin: 0;
   }
   figcaption {
     padding: 0.6em;
@@ -158,22 +169,21 @@ input {
 
 
 
-figure {
-  margin: 0;
-}
 
 
-.card-container {
-  margin: 0 auto;
-}
 
 
+/*========================================
+>>>>>>>  M-E-D-I-A  Q-U-E-R-I-E-S  <<<<<<<
+========================================*/
+// under 1000px
 @media (max-width: 1000px) {
   h1 {
     line-height: 0.85em;
   }
 }
 
+//under 750px
 @media (max-width: 750px) {
   header {
     padding: 30px;
@@ -186,6 +196,7 @@ figure {
   }
 }
 
+// under 450px
 @media (max-width: 450px) {
   header {
     padding: 20px;
