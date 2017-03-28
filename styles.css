@@ -27,22 +27,17 @@ form {
   margin: 0 auto;
   color: #938284; }
 
-.input-title-container,
-.input-caption-container {
-  width: 100%; }
-  .input-title-container label,
-  .input-caption-container label {
-    text-align: left;
-    display: block; }
-  .input-title-container input,
-  .input-caption-container input {
-    width: 100%;
-    margin: 10px 0 20px;
-    font-size: 1.6em;
-    padding: .2em; }
-    .input-title-container input:focus,
-    .input-caption-container input:focus {
-      outline: none; }
+label {
+  text-align: left;
+  display: block; }
+
+input {
+  width: 100%;
+  margin: 10px 0 20px;
+  font-size: 1.6em;
+  padding: .2em; }
+  input:focus {
+    outline: none; }
 
 .inputfile {
   width: 0.1px;
@@ -73,5 +68,46 @@ form {
 
 #save-button {
   float: right; }
+
+.gallery {
+  background-color: #C2B2B4;
+  height: 1000px;
+  padding: 50px; }
+
+.card {
+  color: #5B4447;
+  width: 20%;
+  min-width: 180px;
+  border: 1px solid #5B4447;
+  background-color: white;
+  display: block;
+  float: left; }
+  .card:not(:nth-child(4)) {
+    margin-right: 6.6666%; }
+  .card h2 {
+    font-size: 1em;
+    font-weight: 600;
+    margin: 0;
+    padding: 0.6em; }
+  .card figcaption {
+    padding: 0.6em;
+    font-size: 0.9em; }
+  .card .card-image {
+    display: block;
+    width: 100%; }
+  .card .icons {
+    background-color: #5B4447;
+    padding: 8px;
+    padding-bottom: 5px; }
+    .card .icons img {
+      height: 20px; }
+    .card .icons #favorite {
+      float: right; }
+
+figure {
+  margin: 0; }
+
+.card-container {
+  margin: 0 auto; }
 
 /*# sourceMappingURL=styles.css.map */
