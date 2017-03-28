@@ -1,5 +1,5 @@
 // Globals
-var fotos = [];
+var favorites = [];
 // Classes
 function Foto(title, caption, path) {
   this.title = title;
@@ -17,8 +17,10 @@ document.getElementById('save-button').addEventListener('click', function() {
   // Create foto object
   var foto = new Foto(title, caption, pathURL);
 
-  // Create Card Element
+  // Container Element
   var cardContainer = document.getElementById('card-container');
+
+  // Create Card Element
   var card = document.createElement('div');
   var cardHeader = document.createElement('h2');
   var cardFigure = document.createElement('figure');
@@ -55,7 +57,7 @@ document.getElementById('save-button').addEventListener('click', function() {
 
   // Append to Card Container
   cardContainer.appendChild(card);
-  fotos.push(foto);
+
 
   // TODO: clear input after button pressed
 });
