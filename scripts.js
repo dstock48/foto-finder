@@ -12,10 +12,10 @@ document.getElementById('save-button').addEventListener('click', function() {
   // DOM Element values
   var title = document.getElementById('input-title').value;
   var caption = document.getElementById('input-caption').value;
-  var pathUrl = "photos/" + document.getElementById('file').files[0].name;
+  var pathURL = "photos/" + document.getElementById('file').files[0].name;
 
   // Create foto object
-  var foto = new Foto(title, caption, pathUrl);
+  var foto = new Foto(title, caption, pathURL);
 
   // Create Card Element
   var cardContainer = document.getElementById('card-container');
@@ -35,7 +35,7 @@ document.getElementById('save-button').addEventListener('click', function() {
   deleteIcon.setAttribute('src', 'assets/delete.svg');
   favoriteIcon.setAttribute('src', 'assets/favorite.svg');
 
-  //Assign ID to Elements
+  // Assign ID to Elements
   deleteIcon.setAttribute('id', 'delete');
   favoriteIcon.setAttribute('id', 'favorite');
 
