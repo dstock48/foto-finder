@@ -52,10 +52,6 @@ form {
   position: absolute;
   z-index: -1; }
 
-.inputfile:focus + label,
-.inputfile + label:hover {
-  background-color: #938284; }
-
 .buttons {
   width: 100%;
   text-align: left;
