@@ -10,7 +10,13 @@
 body {
   height: 100%;
   margin: 0;
-  font-family: 'Open Sans', sans-serif; }
+  font-family: 'Open Sans', sans-serif;
+  background-color: #3E2A35; }
+
+.clearfix:after {
+  content: " ";
+  display: table;
+  clear: both; }
 
 /*=======================================
 >>>>>>>>  H - E - A - D - E - R  <<<<<<<<
@@ -93,22 +99,22 @@ input {
 ========================================*/
 .gallery {
   background-color: #C2B2B4;
-  height: 500px;
   padding: 50px; }
 
 .card-container {
-  margin: 0 auto; }
+  margin: 0 auto;
+  text-align: center; }
 
 .card {
+  text-align: left;
   color: #5B4447;
   width: 20%;
+  margin: 20px;
   min-width: 180px;
   border: 1px solid #5B4447;
   background-color: #FFF;
-  display: block;
-  float: left; }
-  .card:not(:nth-child(4)) {
-    margin-right: 6.6666%; }
+  display: inline-block;
+  margin-bottom: 50px; }
   .card h2 {
     font-size: 1em;
     font-weight: 600;
@@ -131,12 +137,22 @@ input {
     .card .icons #favorite {
       float: right; }
 
+/*=======================================
+>>>>>>>>  F - O - O - T - E - R  <<<<<<<<
+========================================*/
+footer {
+  height: 200px;
+  background-color: #3E2A35; }
+
 /*========================================
 >>>>>>>  M-E-D-I-A  Q-U-E-R-I-E-S  <<<<<<<
 ========================================*/
 @media (max-width: 1000px) {
   h1 {
-    line-height: 0.85em; } }
+    line-height: 0.85em; }
+
+  .card {
+    width: 42%; } }
 @media (max-width: 750px) {
   header {
     padding: 30px; }
@@ -145,7 +161,19 @@ input {
     width: 100%; }
 
   h1 {
-    font-size: 3em; } }
+    font-size: 3em; }
+
+  .gallery {
+    padding: 30px 0; }
+
+  .card-container {
+    padding: 0; }
+
+  .card {
+    margin: 10px; } }
+@media (max-width: 550px) {
+  .card {
+    width: 90%; } }
 @media (max-width: 450px) {
   header {
     padding: 20px; }
