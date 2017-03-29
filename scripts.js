@@ -167,3 +167,26 @@ function createCard(foto) {
   card.appendChild(iconContainer);
   return card;
 }
+
+function populateGallery() {
+  
+  for (var i = 1; i < 11; i++) {
+
+    var title = document.getElementById('input-title').value;
+    var caption = document.getElementById('input-caption').value;
+    var pathURL = "photos/Photo" + i + ".jpg";
+    var titleInput = document.getElementById('input-title');
+    var captionInput = document.getElementById('input-caption');
+    var fileInput = document.getElementById('file');
+
+    // Create foto object
+    var foto = new Foto(title, caption, pathURL);
+
+    // Create card Element
+    var card = createCard(foto);
+
+    fotos.push(card);
+  }
+
+  refreshAlbum(cardContainer, fotos);
+}

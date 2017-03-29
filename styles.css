@@ -109,20 +109,17 @@ input {
     opacity: 0.3; }
 
 .card-container {
-  margin: 0 auto;
-  text-align: center; }
+  margin: 0 auto; }
 
 .card {
   position: relative;
   text-align: left;
   color: #5B4447;
   width: 20%;
-  margin: 20px;
-  min-width: 180px;
+  margin: 2.5%;
   border: 1px solid #5B4447;
   background-color: #FFF;
-  display: inline-block;
-  margin-bottom: 50px; }
+  display: inline-block; }
   .card h2 {
     font-size: 1em;
     font-weight: 600;
@@ -221,7 +218,7 @@ footer {
     line-height: 0.85em; }
 
   .card {
-    width: 42%; }
+    width: 45%; }
     .card .card-image {
       height: 300px; }
     .card .icons img {
@@ -251,14 +248,13 @@ footer {
   .card-container {
     padding: 0; }
 
-  .card {
-    margin: 10px; }
-    .card .card-image {
-      height: 200px; } }
+  .card .card-image {
+    height: 200px; } }
 @media (max-width: 550px) {
   .card {
     font-size: 25px;
-    width: 90%; }
+    width: 90%;
+    margin: 5%; }
     .card figcaption {
       height: 77px; }
     .card .icons img {
