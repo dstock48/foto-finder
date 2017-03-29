@@ -99,9 +99,14 @@ input {
   color: #FFF;
   text-align: center;
 
-  &:hover {
+  &:hover:not([disabled]) {
     background-color: $secondary;
     cursor: pointer;
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+    background-color: #C2B2B4;
   }
 }
 

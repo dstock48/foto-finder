@@ -79,9 +79,12 @@ input {
   display: inline-block;
   color: #FFF;
   text-align: center; }
-  .button:hover {
+  .button:hover:not([disabled]) {
     background-color: #938284;
     cursor: pointer; }
+  .button[disabled] {
+    cursor: not-allowed;
+    background-color: #C2B2B4; }
 
 #save-button {
   float: right; }
