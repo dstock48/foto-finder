@@ -26,7 +26,7 @@
       <div class="buttons">
         <input type="file" style="display: none;" name="file" id="file"/>
         <label class="button" for="file">Choose File</label>
-        <button class="button" type="submit" id="save-button" name="button">Save</button>
+        <button class="button" type="submit" id="save-button" name="button">Add To Album</button>
       </div>
     </div>
   </header>
@@ -41,14 +41,11 @@
         </figure>
         <div class="icons">
           <img id="delete" src="assets/delete.svg" alt="">  <!-- BUG: these can't be ID's because there will be many of them on the page -->
-          <img id="favorite" src="assets/favorite.svg" alt="">  <!-------->
+          <div class="default" id="favorite"></div>  <!-------->
         </div>
       </div>
     </div>
   </section>
-  <footer>
-
-  </footer>
   <script src="scripts.js" charset="utf-8"></script>
   </body>
 </html>

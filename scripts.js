@@ -28,14 +28,14 @@ document.getElementById('save-button').addEventListener('click', function() {
   var cardCaption = document.createElement('figcaption');
   var iconContainer = document.createElement('div');
   var deleteIcon = document.createElement('img');
-  var favoriteIcon = document.createElement('img');
+  var favoriteIcon = document.createElement('div');
 
   // Add Data to DOM
   cardHeader.innerText = foto.title;
   cardCaption.innerText = foto.caption;
   cardImg.style.backgroundImage = 'url(' + foto.path + ')';
   deleteIcon.setAttribute('src', 'assets/delete.svg');
-  favoriteIcon.setAttribute('src', 'assets/favorite.svg');
+  favoriteIcon.className = "default";
 
   // Assign ID to Elements
   deleteIcon.setAttribute('id', 'delete');
@@ -67,33 +67,35 @@ document.getElementById('save-button').addEventListener('click', function() {
 var deleteBtn = document.getElementById('delete');
 var cardContainer = document.getElementById('card-container');
 
+
+
+
+
+
 cardContainer.addEventListener('click', function(e) {
-  console.log(e.target.parentElement.parentElement);
-  console.log(e);
+  // console.log(e.target.parentElement.parentElement);
+  // console.log(e);
   var idAttribute = e.target.id;
   var thisCard = e.target.parentElement.parentElement;
-  var favoriteIcon = document.getElementById(idAttribute);
+  var favoriteIcon = e.target;
 
   if (idAttribute === 'delete') {
     cardContainer.removeChild(thisCard);
-    console.log('IT WORKS!');
   }
 
   if (idAttribute === 'favorite') {
     switch (thisCard.className) {
       case 'card':
-        // favorites.push(thisCard);
-        // thisCard.classList.add('favorited');
-        favoriteIcon.setAttribute('src', 'assets/favorite-active.svg');
-        console.log(thisCard);
-        // console.log(favorites);
+        favorites.push(thisCard);
+        thisCard.classList.add('favorited');
+        favoriteIcon.className = 'favorite-active';
+        console.log(favorites);
         break;
       case 'card favorited':
-        // favorites.pop(thisCard);
-        // thisCard.classList.remove('favorited');
-        favoriteIcon.setAttribute('src', 'assets/favorite.svg');
-        console.log(thisCard);
-        // console.log(favorites);
+        favorites.pop(thisCard);
+        thisCard.classList.remove('favorited');
+        favoriteIcon.className = 'default';
+        console.log(favorites);
         break;
       default:
 

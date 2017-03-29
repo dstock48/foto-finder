@@ -137,14 +137,13 @@ input {
     .card .icons img {
       height: 20px; }
     .card .icons #favorite {
+      height: 20px;
+      width: 20px;
       float: right; }
-
-/*=======================================
->>>>>>>>  F - O - O - T - E - R  <<<<<<<<
-========================================*/
-footer {
-  height: 200px;
-  background-color: #3E2A35; }
+    .card .icons #favorite.default {
+      background: url("assets/favorite.svg") no-repeat; }
+    .card .icons #favorite.favorite-active {
+      background: url("assets/favorite-active.svg") no-repeat; }
 
 /*========================================
 >>>>>>>  M-E-D-I-A  Q-U-E-R-I-E-S  <<<<<<<
@@ -161,7 +160,14 @@ footer {
     .card .card-image {
       height: 300px; }
     .card .icons img {
-      height: 30px; } }
+      height: 30px; }
+    .card .icons #favorite {
+      width: 30px;
+      height: 30px; }
+    .card .icons #favorite.default {
+      background: url("assets/favorite.svg") no-repeat; }
+    .card .icons #favorite.favorite-active {
+      background: url("assets/favorite-active.svg") no-repeat; } }
 @media (max-width: 750px) {
   header {
     padding: 30px; }
@@ -189,7 +195,14 @@ footer {
     .card figcaption {
       height: 77px; }
     .card .icons img {
-      height: 40px; } }
+      height: 40px; }
+    .card .icons #favorite {
+      width: 40px;
+      height: 40px; }
+    .card .icons #favorite.default {
+      background: url("assets/favorite.svg") no-repeat; }
+    .card .icons #favorite.favorite-active {
+      background: url("assets/favorite-active.svg") no-repeat; } }
 @media (max-width: 450px) {
   header {
     padding: 20px; }
