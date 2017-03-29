@@ -129,7 +129,7 @@ input {
     content: "Click 'Choose File' to add a new photo to the gallery";
     text-align: center;
     left: 50%;
-    top: 25%;
+    top: 50px;
     transform: translateX(-50%);
     font-size: 2.5em;
     color: #5b4447;
@@ -265,6 +265,9 @@ input {
   }
   .gallery {
     padding: 30px 0;
+    &.message::after {
+      font-size: 1.5em;
+    }
   }
   .card-container {
     padding: 0;
