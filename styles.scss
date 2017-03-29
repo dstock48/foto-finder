@@ -120,7 +120,7 @@ input {
 
 .gallery {
   background-color: #C2B2B4;
-  min-height: 600px;
+  min-height: 450px;
   padding: 50px;
   position: relative;
 
@@ -147,18 +147,12 @@ input {
   text-align: left;
   color: $primary;
   width: 20%;
-  // min-height: 300px;
   margin: 20px;
   min-width: 180px;
   border: 1px solid $primary;
   background-color: #FFF;
   display: inline-block;
-  // float: left;
   margin-bottom: 50px;
-
-  // &:not(:nth-child(4n)) {
-  //   margin-right: 6.6666%;
-  // }
   h2 {
     font-size: 1em;
     font-weight: 600;
@@ -194,17 +188,40 @@ input {
     img {
       height: 20px;
     }
+    #delete {
+      &:hover {
+        cursor: pointer;
+      }
+    }
     #favorite {
       height: 20px;
       width: 20px;
       float: right;
+      &:hover {
+        cursor: pointer;
+      }
+      &.default {
+        background: url('assets/favorite.svg') no-repeat;
+      }
+      &.favorite-active {
+        background: url('assets/favorite-active.svg') no-repeat;
+      }
     }
-    #favorite.default {
-      background: url('assets/favorite.svg') no-repeat;
+  }
+}
+
+footer {
+  color: $secondary;
+  font-size: 0.7em;
+  padding: 2em;
+  p {
+    display: inline-block;
+    &:last-child {
+      float: right;
     }
-    #favorite.favorite-active {
-      background: url('assets/favorite-active.svg') no-repeat;
-    }
+  }
+  .student-name {
+    color: #E26D5A;
   }
 }
 
@@ -336,5 +353,8 @@ input {
     .card-image {
       height: 200px;
     }
+  }
+  footer {
+    font-size: .6em;
   }
 }

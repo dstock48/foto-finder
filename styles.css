@@ -94,7 +94,7 @@ input {
 ========================================*/
 .gallery {
   background-color: #C2B2B4;
-  min-height: 600px;
+  min-height: 450px;
   padding: 50px;
   position: relative; }
   .gallery.message::after {
@@ -151,14 +151,29 @@ input {
     padding-bottom: 5px; }
     .card .icons img {
       height: 20px; }
+    .card .icons #delete:hover {
+      cursor: pointer; }
     .card .icons #favorite {
       height: 20px;
       width: 20px;
       float: right; }
-    .card .icons #favorite.default {
-      background: url("assets/favorite.svg") no-repeat; }
-    .card .icons #favorite.favorite-active {
-      background: url("assets/favorite-active.svg") no-repeat; }
+      .card .icons #favorite:hover {
+        cursor: pointer; }
+      .card .icons #favorite.default {
+        background: url("assets/favorite.svg") no-repeat; }
+      .card .icons #favorite.favorite-active {
+        background: url("assets/favorite-active.svg") no-repeat; }
+
+footer {
+  color: #938284;
+  font-size: 0.7em;
+  padding: 2em; }
+  footer p {
+    display: inline-block; }
+    footer p:last-child {
+      float: right; }
+  footer .student-name {
+    color: #E26D5A; }
 
 /*========================================
 >>>>>>>  M-E-D-I-A  Q-U-E-R-I-E-S  <<<<<<<
@@ -242,6 +257,9 @@ input {
     width: 46%; }
 
   .card .card-image {
-    height: 200px; } }
+    height: 200px; }
+
+  footer {
+    font-size: .6em; } }
 
 /*# sourceMappingURL=styles.css.map */
