@@ -1,6 +1,5 @@
 // Globals
 var fotos = [];
-var favorites = [];
 var deleteBtn = document.getElementById('delete');
 var cardContainer = document.getElementById('card-container');
 // Classes
@@ -81,7 +80,7 @@ document.getElementById('save-button').addEventListener('click', function() {
   // Append to Card Container
   // cardContainer.appendChild(card);
   fotos.push(card);
-  refreshAlbum(cardContainer);
+  refreshAlbum(cardContainer, fotos);
   document.getElementById('save-button').setAttribute("disabled", "");
   document.getElementById('file').value = '';
   titleInput.value = '';
@@ -114,9 +113,9 @@ cardContainer.addEventListener('click', function(e) {
         console.log(thisCard.className.length);
         console.dir(fotos);
         // sortArray(fotos, thisCard);
-        fotos.sort(function(a, b) {
-          return a.className.length - b.className.length;
-        });
+        // fotos.sort(function(a, b) {
+        //   return a.className.length - b.className.length;
+        // });
         break;
       case 'card favorited':
         // fotos.splice(favorites.indexOf(thisCard), 1);
@@ -129,20 +128,24 @@ cardContainer.addEventListener('click', function(e) {
         console.log(thisCard.className.length);
         console.dir(fotos);
         // sortArray(fotos, thisCard);
-        fotos.sort(function(a, b) {
-          return a.className.length - b.className.length;
-        });
+        // fotos.sort(function(a, b) {
+        //   return a.className.length - b.className.length;
+        // });
         break;
       default:
-      refreshAlbum(cardContainer);
     }
+    console.log(sortFotos);
+    var sortFotos = fotos.sort(function(a, b) {
+      return b.className.length - a.className.length;
+    });
+    refreshAlbum(cardContainer, sortFotos);
   }
 });
 
 
-function refreshAlbum(container) {
-  for (var i = 0; i < fotos.length; i++) {
-    container.appendChild(fotos[i]);
+function refreshAlbum(container, array) {
+  for (var i = 0; i < array.length; i++) {
+    container.appendChild(array[i]);
   }
 }
 
