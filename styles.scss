@@ -184,6 +184,10 @@ input {
     background: url("https://www.placecage.com/400/300");
     background-size: cover;
     background-position: center;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   .icons {
@@ -223,6 +227,39 @@ input {
     }
   }
 }
+
+/*=======================================
+>>>>>>>>  P-H-O-T-O  M-O-D-A-L  <<<<<<<<
+========================================*/
+
+.photo-modal {
+  width: 100vw;
+  height: 100%;
+  // margin: 20%;
+  background: hsla(0,0%,0%,.80);
+  background-position: center;
+  background-size: 80%;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.close-modal {
+  position: absolute;
+  margin: 0;
+  top: 1em;
+  right: 1em;
+  font-size: 2em;
+  color: hsla(0,0%,100%,.5);
+  &:hover {
+    cursor: pointer;
+    color: #E26D5A;
+  }
+}
+
+/*=======================================
+>>>>>>>>  F - O - O - T - E - R  <<<<<<<<
+========================================*/
 
 footer {
   color: $secondary;

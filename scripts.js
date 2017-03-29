@@ -1,7 +1,8 @@
 // Globals
 var fotos = [];
-var deleteBtn = document.getElementById('delete');
 var cardContainer = document.getElementById('card-container');
+var photoModal = document.createElement('div');
+
 // Classes
 function Foto(title, caption, path) {
   this.title = title;
@@ -27,8 +28,8 @@ document.getElementById('input-title').addEventListener('input', validateInput);
 document.getElementById('input-caption').addEventListener('input', validateInput);
 document.getElementById('file').addEventListener('change', validateInput);
 document.getElementById('save-button').addEventListener('click', function() {
-  // DOM Element values
 
+  // DOM Element values
   var title = document.getElementById('input-title').value;
   var caption = document.getElementById('input-caption').value;
   var pathURL = "photos/" + document.getElementById('file').files[0].name;
@@ -53,11 +54,32 @@ document.getElementById('save-button').addEventListener('click', function() {
   document.querySelector('.gallery').classList.remove('message');
 });
 
+photoModal.addEventListener('click', function() {
+  var documentBody = document.querySelector('body');
+  documentBody.removeChild(photoModal);
+})
+
 cardContainer.addEventListener('click', function(e) {
   var idAttribute = e.target.id;
+  var classAttribute = e.target.className;
   var thisCard = e.target.parentElement.parentElement;
   var favoriteIcon = e.target;
+  var documentBody = document.querySelector('body');
 
+  // Card Image is clicked
+  if (classAttribute === 'card-image') {
+    var modalCloseIcon = document.createElement('p');
+    console.log(e);
+    photoModal.className = 'photo-modal';
+    photoModal.style.backgroundImage = e.target.style.backgroundImage;
+    photoModal.style.backgroundRepeat = 'no-repeat'
+    modalCloseIcon.textContent = 'Close (x)';
+    modalCloseIcon.className = 'close-modal';
+    photoModal.appendChild(modalCloseIcon);
+    documentBody.appendChild(photoModal);
+  }
+
+  // Delete icon is clicked
   if (idAttribute === 'delete') {
     cardContainer.removeChild(thisCard);
     fotos.splice(fotos.indexOf(thisCard), 1);
@@ -66,6 +88,7 @@ cardContainer.addEventListener('click', function(e) {
     }
   }
 
+  // Favorite Icon is clicked
   if (idAttribute === 'favorite') {
     switch (thisCard.className) {
       case 'card':
