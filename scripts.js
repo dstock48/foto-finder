@@ -95,6 +95,7 @@ cardContainer.addEventListener('click', function(e) {
 
   if (idAttribute === 'delete') {
     cardContainer.removeChild(thisCard);
+    fotos.splice(fotos.indexOf(thisCard), 1);
     if (cardContainer.children.length === 0) {
       document.querySelector('.gallery').classList.add('message');
     }
@@ -118,7 +119,6 @@ cardContainer.addEventListener('click', function(e) {
         // });
         break;
       case 'card favorited':
-        // fotos.splice(favorites.indexOf(thisCard), 1);
         thisCard.classList.remove('favorited');
         favoriteIcon.className = 'default';
         // sortArray(fotos, thisCard);
@@ -134,11 +134,11 @@ cardContainer.addEventListener('click', function(e) {
         break;
       default:
     }
-    console.log(sortFotos);
-    var sortFotos = fotos.sort(function(a, b) {
+    console.log(fotos);
+    fotos = fotos.sort(function(a, b) {
       return b.className.length - a.className.length;
     });
-    refreshAlbum(cardContainer, sortFotos);
+    refreshAlbum(cardContainer, fotos);
   }
 });
 

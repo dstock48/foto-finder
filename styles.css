@@ -182,6 +182,9 @@ footer {
   .card .card-image {
     height: 250px; } }
 @media (max-width: 1000px) {
+  header {
+    padding: 40px; }
+
   .header-container {
     width: 80%; }
 
@@ -258,6 +261,9 @@ footer {
     margin-top: 1.5rem;
     font-size: .8em;
     width: 46%; }
+
+  .gallery.message::after {
+    font-size: 1.2em; }
 
   .card .card-image {
     height: 200px; }
