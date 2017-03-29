@@ -84,7 +84,7 @@ input {
     cursor: pointer; }
   .button[disabled] {
     cursor: not-allowed;
-    background-color: #C2B2B4; }
+    background-color: #4c3441; }
 
 #save-button {
   float: right; }
@@ -182,6 +182,9 @@ footer {
   .card .card-image {
     height: 250px; } }
 @media (max-width: 1000px) {
+  .header-container {
+    width: 80%; }
+
   h1 {
     line-height: 0.85em; }
 
