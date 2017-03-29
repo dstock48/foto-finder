@@ -169,7 +169,7 @@ function createCard(foto) {
 }
 
 function populateGallery() {
-  
+
   for (var i = 1; i < 11; i++) {
 
     var title = document.getElementById('input-title').value;
@@ -187,6 +187,6 @@ function populateGallery() {
 
     fotos.push(card);
   }
-
+  document.querySelector('.gallery').classList.remove('message');
   refreshAlbum(cardContainer, fotos);
 }
