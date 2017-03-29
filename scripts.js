@@ -1,4 +1,5 @@
 // Globals
+var fotos = [];
 var favorites = [];
 var deleteBtn = document.getElementById('delete');
 var cardContainer = document.getElementById('card-container');
@@ -78,7 +79,9 @@ document.getElementById('save-button').addEventListener('click', function() {
   iconContainer.appendChild(favoriteIcon);
 
   // Append to Card Container
-  cardContainer.appendChild(card);
+  // cardContainer.appendChild(card);
+  fotos.push(card);
+  refreshAlbum(cardContainer);
   document.getElementById('save-button').setAttribute("disabled", "");
   document.getElementById('file').value = '';
   titleInput.value = '';
@@ -101,19 +104,59 @@ cardContainer.addEventListener('click', function(e) {
   if (idAttribute === 'favorite') {
     switch (thisCard.className) {
       case 'card':
-        favorites.push(thisCard);
+        // fotos.push(thisCard);
+        var tempCard = thisCard.className;
         thisCard.classList.add('favorited');
         favoriteIcon.className = 'favorite-active';
+        // sortArray(fotos, thisCard);
+        // refreshAlbum(cardContainer);
+        console.log(thisCard.className);
+        console.log(thisCard.className.length);
+        console.dir(fotos);
+        // sortArray(fotos, thisCard);
+        fotos.sort(function(a, b) {
+          return a.className.length - b.className.length;
+        });
         break;
       case 'card favorited':
-        favorites.splice(favorites.indexOf(thisCard), 1);
+        // fotos.splice(favorites.indexOf(thisCard), 1);
         thisCard.classList.remove('favorited');
         favoriteIcon.className = 'default';
-        console.log(favorites);
-        console.log(thisCard in favorites);
-        console.log(favorites.indexOf(thisCard));
+        // sortArray(fotos, thisCard);
+
+        // refreshAlbum(cardContainer);
+        console.log(thisCard.className);
+        console.log(thisCard.className.length);
+        console.dir(fotos);
+        // sortArray(fotos, thisCard);
+        fotos.sort(function(a, b) {
+          return a.className.length - b.className.length;
+        });
         break;
       default:
+      refreshAlbum(cardContainer);
     }
   }
 });
+
+
+function refreshAlbum(container) {
+  for (var i = 0; i < fotos.length; i++) {
+    container.appendChild(fotos[i]);
+  }
+}
+
+function sortArray(array, icon) {
+  array.sort(favoriteCompare(icon));
+}
+
+function favoriteCompare(cardDiv) {
+  return cardDiv.className.length - cardDiv.className.length;
+  // if(cardDiv.className ==='card favorited') {
+  //   return -1;
+  // }
+  // if(cardDiv.className === 'card') {
+  //   return 1;
+  // }
+  // return 0;
+}
