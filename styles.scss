@@ -120,8 +120,21 @@ input {
 
 .gallery {
   background-color: #C2B2B4;
-  // height: 100%;
+  min-height: 600px;
   padding: 50px;
+  position: relative;
+
+  &.message::after {
+    position: absolute;
+    content: "Click 'Choose File' to add a new photo to the gallery";
+    text-align: center;
+    left: 50%;
+    top: 25%;
+    transform: translateX(-50%);
+    font-size: 2.5em;
+    color: #5b4447;
+    opacity: 0.3;
+  }
 }
 
 .card-container {

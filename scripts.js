@@ -83,6 +83,7 @@ document.getElementById('save-button').addEventListener('click', function() {
   document.getElementById('file').value = '';
   titleInput.value = '';
   captionInput.value = '';
+  document.querySelector('.gallery').classList.remove('message');
 });
 
 cardContainer.addEventListener('click', function(e) {
@@ -92,6 +93,9 @@ cardContainer.addEventListener('click', function(e) {
 
   if (idAttribute === 'delete') {
     cardContainer.removeChild(thisCard);
+    if (cardContainer.children.length === 0) {
+      document.querySelector('.gallery').classList.add('message');
+    }
   }
 
   if (idAttribute === 'favorite') {
