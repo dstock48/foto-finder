@@ -60,4 +60,45 @@ document.getElementById('save-button').addEventListener('click', function() {
 
 
   // TODO: clear input after button pressed
+
+});
+
+// TODO: Delete icon functional
+var deleteBtn = document.getElementById('delete');
+var cardContainer = document.getElementById('card-container');
+
+cardContainer.addEventListener('click', function(e) {
+  console.log(e.target.parentElement.parentElement);
+  console.log(e);
+  var idAttribute = e.target.id;
+  var thisCard = e.target.parentElement.parentElement;
+  var favoriteIcon = document.getElementById(idAttribute);
+
+  if (idAttribute === 'delete') {
+    cardContainer.removeChild(thisCard);
+    console.log('IT WORKS!');
+  }
+
+  if (idAttribute === 'favorite') {
+    switch (thisCard.className) {
+      case 'card':
+        // favorites.push(thisCard);
+        // thisCard.classList.add('favorited');
+        favoriteIcon.setAttribute('src', 'assets/favorite-active.svg');
+        console.log(thisCard);
+        // console.log(favorites);
+        break;
+      case 'card favorited':
+        // favorites.pop(thisCard);
+        // thisCard.classList.remove('favorited');
+        favoriteIcon.setAttribute('src', 'assets/favorite.svg');
+        console.log(thisCard);
+        // console.log(favorites);
+        break;
+      default:
+
+    }
+  }
+
+  // cardContainer.removeChild(card);
 });
