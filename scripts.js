@@ -10,23 +10,11 @@ function Foto(title, caption, path) {
   this.path = path;
 }
 
-function validateInput(e) {
-  // console.log(e);
-  var title = document.getElementById('input-title').value;
-  var caption = document.getElementById('input-caption').value;
-  var file = document.getElementById('file').files[0];
-
-  if (title !== "" && caption !== "" && file !== undefined) {
-    document.getElementById('save-button').removeAttribute("disabled", "");
-  } else {
-    document.getElementById('save-button').setAttribute("disabled", "");
-  }
-}
-
 // Events
 document.getElementById('input-title').addEventListener('input', validateInput);
 document.getElementById('input-caption').addEventListener('input', validateInput);
 document.getElementById('file').addEventListener('change', validateInput);
+
 document.getElementById('save-button').addEventListener('click', function() {
 
   // DOM Element values
@@ -47,40 +35,33 @@ document.getElementById('save-button').addEventListener('click', function() {
   refreshAlbum(cardContainer, fotos);
 
   // Clear Data from Input
-  document.getElementById('save-button').setAttribute("disabled", "");
-  document.getElementById('file').value = '';
-  titleInput.value = '';
-  captionInput.value = '';
-  document.querySelector('.gallery').classList.remove('message');
+  clearInputs(titleInput, captionInput);
 });
 
-photoModal.addEventListener('click', function() {
-  var documentBody = document.querySelector('body');
-  documentBody.removeChild(photoModal);
-})
-
 cardContainer.addEventListener('click', function(e) {
-  var idAttribute = e.target.id;
-  var classAttribute = e.target.className;
   var thisCard = e.target.parentElement.parentElement;
-  var favoriteIcon = e.target;
-  var documentBody = document.querySelector('body');
+  var dataAttribute = e.target.attributes.dataButtonType.value;
+  var classAttribute = e.target.className;
+  var eventTarget = e.target;
 
   // Card Image is clicked
   if (classAttribute === 'card-image') {
+    // create close icon
     var modalCloseIcon = document.createElement('p');
-    console.log(e);
-    photoModal.className = 'photo-modal';
-    photoModal.style.backgroundImage = e.target.style.backgroundImage;
-    photoModal.style.backgroundRepeat = 'no-repeat'
-    modalCloseIcon.textContent = 'Close (x)';
+    // add class
     modalCloseIcon.className = 'close-modal';
+    photoModal.className = 'photo-modal';
+    // updating data
+    photoModal.style.backgroundImage = e.target.style.backgroundImage;
+    photoModal.style.backgroundRepeat = 'no-repeat';
+    modalCloseIcon.textContent = 'Close (x)';
+    // appending elements
     photoModal.appendChild(modalCloseIcon);
-    documentBody.appendChild(photoModal);
+    document.body.appendChild(photoModal);
   }
 
   // Delete icon is clicked
-  if (idAttribute === 'delete') {
+  if (dataAttribute === 'delete') {
     cardContainer.removeChild(thisCard);
     fotos.splice(fotos.indexOf(thisCard), 1);
     if (cardContainer.children.length === 0) {
@@ -89,17 +70,17 @@ cardContainer.addEventListener('click', function(e) {
   }
 
   // Favorite Icon is clicked
-  if (idAttribute === 'favorite') {
+  if (dataAttribute === 'favorite') {
     switch (thisCard.className) {
       case 'card':
         thisCard.classList.add('favorited');
         thisCard.style.backgroundColor = '#E26D5A';
-        favoriteIcon.className = 'favorite-active';
+        eventTarget.className = 'favorite-active';
         break;
       case 'card favorited':
         thisCard.classList.remove('favorited');
         thisCard.style.backgroundColor = 'white';
-        favoriteIcon.className = 'default';
+        eventTarget.className = 'default';
         break;
       default:
     }
@@ -107,6 +88,33 @@ cardContainer.addEventListener('click', function(e) {
     refreshAlbum(cardContainer, fotos);
   }
 });
+
+photoModal.addEventListener('click', function() {
+  document.body.removeChild(photoModal);
+});
+
+// functions
+
+function validateInput() {
+  var title = document.getElementById('input-title').value;
+  var caption = document.getElementById('input-caption').value;
+  var file = document.getElementById('file').files[0];
+  var saveButton = document.getElementById('save-button');
+
+  if (title !== "" && caption !== "" && file !== undefined) {
+    saveButton.removeAttribute("disabled", "");
+  } else {
+    saveButton.setAttribute("disabled", "");
+  }
+}
+
+function clearInputs(title, caption) {
+  document.getElementById('save-button').setAttribute("disabled", "");
+  document.getElementById('file').value = '';
+  title.value = '';
+  caption.value = '';
+  document.querySelector('.gallery').classList.remove('message');
+}
 
 // Refresh Container Children from Foto Array
 function refreshAlbum(container, array) {
@@ -140,8 +148,9 @@ function createCard(foto) {
 
   // Set Attributes to Elements
   deleteIcon.setAttribute('src', 'assets/delete.svg');
-  deleteIcon.setAttribute('id', 'delete');
-  favoriteIcon.setAttribute('id', 'favorite');
+  deleteIcon.setAttribute('dataButtonType', 'delete');
+  favoriteIcon.setAttribute('dataButtonType', 'favorite');
+  cardImg.setAttribute('dataButtonType', 'card-image');
 
   // Assign Class to Elements
   card.className = 'card';
@@ -158,8 +167,3 @@ function createCard(foto) {
   card.appendChild(iconContainer);
   return card;
 }
-
-
-// TODO: Changes - sort function - done
-// TODO: Delete - favoriteCompare() - done
-// TODO: Add - create card function - done

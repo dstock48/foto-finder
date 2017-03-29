@@ -202,13 +202,13 @@ input {
       height: 20px;
     }
 
-    #delete {
+    img[dataButtonType="delete"] {
       &:hover {
         cursor: pointer;
       }
     }
 
-    #favorite {
+    div[dataButtonType="favorite"] {
       height: 20px;
       width: 20px;
       float: right;
@@ -316,16 +316,16 @@ footer {
         height: 30px;
       }
 
-      #favorite {
+      div[dataButtonType="favorite"] {
         width: 30px;
         height: 30px;
       }
 
-      #favorite.default {
+      div[dataButtonType="favorite"].default {
         background: url("assets/favorite.svg") no-repeat;
       }
 
-      #favorite.favorite-active {
+      div[dataButtonType="favorite"].favorite-active {
         background: url("assets/favorite-active.svg") no-repeat;
       }
     }
@@ -382,16 +382,16 @@ footer {
         height: 40px;
       }
 
-      #favorite {
+      div[dataButtonType="favorite"] {
         width: 40px;
         height: 40px;
       }
 
-      #favorite.default {
+      div[dataButtonType="favorite"].default {
         background: url("assets/favorite.svg") no-repeat;
       }
 
-      #favorite.favorite-active {
+      div[dataButtonType="favorite"].favorite-active {
         background: url("assets/favorite-active.svg") no-repeat;
       }
     }
