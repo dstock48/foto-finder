@@ -104,13 +104,14 @@ cardContainer.addEventListener('click', function(e) {
         favorites.push(thisCard);
         thisCard.classList.add('favorited');
         favoriteIcon.className = 'favorite-active';
-        console.log(favorites);
         break;
       case 'card favorited':
-        favorites.pop(thisCard);
+        favorites.splice(favorites.indexOf(thisCard), 1);
         thisCard.classList.remove('favorited');
         favoriteIcon.className = 'default';
         console.log(favorites);
+        console.log(thisCard in favorites);
+        console.log(favorites.indexOf(thisCard));
         break;
       default:
     }
