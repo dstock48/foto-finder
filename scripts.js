@@ -93,10 +93,12 @@ cardContainer.addEventListener('click', function(e) {
     switch (thisCard.className) {
       case 'card':
         thisCard.classList.add('favorited');
+        thisCard.style.backgroundColor = '#E26D5A';
         favoriteIcon.className = 'favorite-active';
         break;
       case 'card favorited':
         thisCard.classList.remove('favorited');
+        thisCard.style.backgroundColor = 'white';
         favoriteIcon.className = 'default';
         break;
       default:
