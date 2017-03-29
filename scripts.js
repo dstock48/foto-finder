@@ -39,48 +39,13 @@ document.getElementById('save-button').addEventListener('click', function() {
   // Create foto object
   var foto = new Foto(title, caption, pathURL);
 
-  // Container Element
-  var cardContainer = document.getElementById('card-container');
+  // Create card Element
+  var card = createCard(foto);
 
-  // Create Card Element
-  var card = document.createElement('div');
-  var cardHeader = document.createElement('h2');
-  var cardFigure = document.createElement('figure');
-  var cardImg = document.createElement('div');
-  var cardCaption = document.createElement('figcaption');
-  var iconContainer = document.createElement('div');
-  var deleteIcon = document.createElement('img');
-  var favoriteIcon = document.createElement('div');
-
-  // Add Data to DOM
-  cardHeader.innerText = foto.title;
-  cardCaption.innerText = foto.caption;
-  cardImg.style.backgroundImage = 'url(' + foto.path + ')';
-  deleteIcon.setAttribute('src', 'assets/delete.svg');
-  favoriteIcon.className = "default";
-
-  // Assign ID to Elements
-  deleteIcon.setAttribute('id', 'delete');
-  favoriteIcon.setAttribute('id', 'favorite');
-
-  // Assign Class to Elements
-  card.className = 'card';
-  cardImg.className = 'card-image';
-  iconContainer.className = 'icons';
-
-  // Append to Card Elements
-  card.appendChild(cardHeader);
-  card.appendChild(cardFigure);
-  cardFigure.appendChild(cardImg);
-  cardFigure.appendChild(cardCaption);
-  card.appendChild(iconContainer);
-  iconContainer.appendChild(deleteIcon);
-  iconContainer.appendChild(favoriteIcon);
-
-  // Append to Card Container
-  // cardContainer.appendChild(card);
   fotos.push(card);
   refreshAlbum(cardContainer, fotos);
+
+  // Clear Data from Input
   document.getElementById('save-button').setAttribute("disabled", "");
   document.getElementById('file').value = '';
   titleInput.value = '';
@@ -104,62 +69,72 @@ cardContainer.addEventListener('click', function(e) {
   if (idAttribute === 'favorite') {
     switch (thisCard.className) {
       case 'card':
-        // fotos.push(thisCard);
-        var tempCard = thisCard.className;
         thisCard.classList.add('favorited');
         favoriteIcon.className = 'favorite-active';
-        // sortArray(fotos, thisCard);
-        // refreshAlbum(cardContainer);
-        console.log(thisCard.className);
-        console.log(thisCard.className.length);
-        console.dir(fotos);
-        // sortArray(fotos, thisCard);
-        // fotos.sort(function(a, b) {
-        //   return a.className.length - b.className.length;
-        // });
         break;
       case 'card favorited':
         thisCard.classList.remove('favorited');
         favoriteIcon.className = 'default';
-        // sortArray(fotos, thisCard);
-
-        // refreshAlbum(cardContainer);
-        console.log(thisCard.className);
-        console.log(thisCard.className.length);
-        console.dir(fotos);
-        // sortArray(fotos, thisCard);
-        // fotos.sort(function(a, b) {
-        //   return a.className.length - b.className.length;
-        // });
         break;
       default:
     }
-    console.log(fotos);
-    fotos = fotos.sort(function(a, b) {
-      return b.className.length - a.className.length;
-    });
+    fotos = sortFotos(fotos);
     refreshAlbum(cardContainer, fotos);
   }
 });
 
-
+// Refresh Container Children from Foto Array
 function refreshAlbum(container, array) {
   for (var i = 0; i < array.length; i++) {
-    container.appendChild(array[i]);
-  }
+    container.appendChild(array[i]);  }
 }
 
-function sortArray(array, icon) {
-  array.sort(favoriteCompare(icon));
+// Sort Array based on Class Length
+function sortFotos(array) {
+  return array.sort(function(a, b) {
+    return b.className.length - a.className.length;
+  });
 }
 
-function favoriteCompare(cardDiv) {
-  return cardDiv.className.length - cardDiv.className.length;
-  // if(cardDiv.className ==='card favorited') {
-  //   return -1;
-  // }
-  // if(cardDiv.className === 'card') {
-  //   return 1;
-  // }
-  // return 0;
+function createCard(foto) {
+  // Create Card Element
+  var card = document.createElement('div');
+  var cardHeader = document.createElement('h2');
+  var cardFigure = document.createElement('figure');
+  var cardImg = document.createElement('div');
+  var cardCaption = document.createElement('figcaption');
+  var iconContainer = document.createElement('div');
+  var deleteIcon = document.createElement('img');
+  var favoriteIcon = document.createElement('div');
+
+  // Add Data to DOM
+  cardHeader.innerText = foto.title;
+  cardCaption.innerText = foto.caption;
+  cardImg.style.backgroundImage = 'url(' + foto.path + ')';
+  favoriteIcon.className = "default";
+
+  // Set Attributes to Elements
+  deleteIcon.setAttribute('src', 'assets/delete.svg');
+  deleteIcon.setAttribute('id', 'delete');
+  favoriteIcon.setAttribute('id', 'favorite');
+
+  // Assign Class to Elements
+  card.className = 'card';
+  cardImg.className = 'card-image';
+  iconContainer.className = 'icons';
+
+  // Append to Card Elements
+  card.appendChild(cardHeader);
+  card.appendChild(cardFigure);
+  cardFigure.appendChild(cardImg);
+  cardFigure.appendChild(cardCaption);
+  iconContainer.appendChild(deleteIcon);
+  iconContainer.appendChild(favoriteIcon);
+  card.appendChild(iconContainer);
+  return card;
 }
+
+
+// TODO: Changes - sort function - done
+// TODO: Delete - favoriteCompare() - done
+// TODO: Add - create card function - done
