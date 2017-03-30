@@ -142,7 +142,7 @@ input {
     background-size: cover;
     background-position: center; }
     .card .card-image:hover {
-      cursor: pointer; }
+      cursor: zoom-in; }
   .card .icons {
     width: 100%;
     background-color: #5B4447;
@@ -175,6 +175,8 @@ input {
   position: fixed;
   left: 0;
   top: 0; }
+  .photo-modal:hover {
+    cursor: zoom-out; }
 
 .close-modal {
   position: absolute;

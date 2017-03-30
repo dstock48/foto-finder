@@ -184,7 +184,7 @@ input {
     background-position: center;
 
     &:hover {
-      cursor: pointer;
+      cursor: zoom-in;
     }
   }
 
@@ -240,6 +240,10 @@ input {
   position: fixed;
   left: 0;
   top: 0;
+
+  &:hover {
+    cursor: zoom-out;
+  }
 }
 
 .close-modal {

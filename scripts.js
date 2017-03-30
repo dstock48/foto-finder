@@ -54,7 +54,7 @@ cardContainer.addEventListener('click', function(e) {
     // updating data
     photoModal.style.backgroundImage = e.target.style.backgroundImage;
     photoModal.style.backgroundRepeat = 'no-repeat';
-    modalCloseIcon.textContent = 'Close (x)';
+    modalCloseIcon.textContent = 'X';
     // appending elements
     photoModal.appendChild(modalCloseIcon);
     document.body.appendChild(photoModal);
@@ -151,6 +151,9 @@ function createCard(foto) {
   deleteIcon.setAttribute('dataButtonType', 'delete');
   favoriteIcon.setAttribute('dataButtonType', 'favorite');
   cardImg.setAttribute('dataButtonType', 'card-image');
+  cardHeader.setAttribute('dataButtonType', 'cardHeader');
+  cardCaption.setAttribute('dataButtonType', 'cardCaption');
+  iconContainer.setAttribute('dataButtonType', 'iconContainer');
 
   // Assign Class to Elements
   card.className = 'card';
@@ -172,8 +175,8 @@ function populateGallery() {
 
   for (var i = 1; i < 11; i++) {
 
-    var title = document.getElementById('input-title').value;
-    var caption = document.getElementById('input-caption').value;
+    var title = "Photo " + i;
+    var caption = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Esse enim, nisi eris.";
     var pathURL = "photos/Photo" + i + ".jpg";
     var titleInput = document.getElementById('input-title');
     var captionInput = document.getElementById('input-caption');
