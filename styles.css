@@ -131,7 +131,7 @@ input {
     padding: 0.6em;
     font-size: 0.9em;
     line-height: 1.3;
-    height: 65px;
+    height: 70px;
     overflow: hidden;
     text-overflow: ellipsis; }
   .card .card-image {
@@ -258,7 +258,7 @@ footer {
     width: 90%;
     margin: 5%; }
     .card figcaption {
-      height: 77px; }
+      height: 100%; }
     .card .icons img {
       height: 40px; }
     .card .icons div[dataButtonType="favorite"] {

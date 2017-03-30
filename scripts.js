@@ -176,7 +176,7 @@ function populateGallery() {
   for (var i = 1; i < 11; i++) {
 
     var title = "Photo " + i;
-    var caption = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Esse enim, nisi eris.";
+    var caption = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
     var pathURL = "photos/Photo" + i + ".jpg";
     var titleInput = document.getElementById('input-title');
     var captionInput = document.getElementById('input-caption');
