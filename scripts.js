@@ -74,12 +74,12 @@ cardContainer.addEventListener('click', function(e) {
     switch (thisCard.className) {
       case 'card':
         thisCard.classList.add('favorited');
-        thisCard.style.backgroundColor = '#E26D5A';
+        // thisCard.style.backgroundColor = '#E26D5A'; <-- Disabled this feature because it looked dumb
         eventTarget.className = 'favorite-active';
         break;
       case 'card favorited':
         thisCard.classList.remove('favorited');
-        thisCard.style.backgroundColor = 'white';
+        // thisCard.style.backgroundColor = 'white'; <-- Disabled this feature because it looked dumb
         eventTarget.className = 'default';
         break;
       default:
@@ -176,7 +176,7 @@ function populateGallery() {
   for (var i = 1; i < 11; i++) {
 
     var title = "Photo " + i;
-    var caption = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
+    var caption = "Lorem ipsum dolor sit amet, consectetur adipiscing sua elit.";
     var pathURL = "photos/Photo" + i + ".jpg";
     var titleInput = document.getElementById('input-title');
     var captionInput = document.getElementById('input-caption');
